@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div>
+          <h1 class="app-title">Notable</h1>
+          <p class="app-subtitle">Create, organize, and keep your thoughts.</p>
+        </div>
+        <div class="header-actions">
+<button id="new-note-btn" class="btn primary-btn">+ New note</button>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <section class="sidebar">
+          <div class="sidebar-top">
+            <div class="search-wrapper">
+              <span class="search-icon">🔍</span>
+              <input
+                id="search-input"
+                type="text"
+                placeholder="Search notes..."
+                autocomplete="off"
+              />
+            </div>
+            <div class="sidebar-toolbar">
+              <select id="sort-select" class="chip-select">
+                <option value="updated_desc">Recent</option>
+                <option value="created_asc">Oldest</option>
+                <option value="title_asc">Title A-Z</option>
+              </select>
+              <button id="filter-pinned-btn" class="chip-btn" title="Show only pinned">
+                📌 Pinned
+              </button>
+              <button id="filter-trash-btn" class="chip-btn" title="Show trash">
+                🗑 Trash
+              </button>
+            </div>
+          </div>
+          <ul id="notes-list" class="notes-list">
+          </ul>
+          <div class="sidebar-footer">
+            <button id="export-notes-btn" class="btn ghost-btn small-btn">Export</button>
+            <label class="btn ghost-btn small-btn file-label">
+              Import
+              <input id="import-notes-input" type="file" accept="application/json" hidden />
+            </label>
+          </div>
+        </section>
+
+        <section class="editor">
+          <div class="editor-header">
+            <input
+              id="note-title"
+              class="title-input"
+              type="text"
+              placeholder="Note title"
+            />
+            <div class="editor-header-actions">
+              <div class="color-dots" title="Note color">
+                <button class="color-dot" data-color="blue"></button>
+                <button class="color-dot" data-color="green"></button>
+                <button class="color-dot" data-color="amber"></button>
+                <button class="color-dot" data-color="rose"></button>
+              </div>
+              <button id="pin-note-btn" class="btn ghost-icon-btn" title="Pin note">
+                📌
+              </button>
+              <button id="delete-note-btn" class="btn danger-btn" title="Move to trash">
+                Delete
+              </button>
+            </div>
+          </div>
+
+          <div class="editor-tags-row">
+            <input
+              id="note-tags-input"
+              class="tags-input"
+              type="text"
+              placeholder="Tags (comma separated, e.g. work, ideas)"
+            />
+          </div>
+          <textarea
+            id="note-content"
+            class="content-input"
+            placeholder="Write your note here..."
+          ></textarea>
+          <div class="editor-footer">
+            <div class="editor-footer-left">
+              <span id="save-status" class="save-status">All changes saved</span>
+              <span id="word-count" class="save-status">0 words</span>
+            </div>
+            <div class="editor-footer-right">
+              <span class="hint-text">Ctrl+S to focus &amp; save</span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
